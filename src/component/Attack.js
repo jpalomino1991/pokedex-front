@@ -1,19 +1,23 @@
 import React, { Component } from 'react'
-import axios from 'axios'
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 import InputGroup from 'react-bootstrap/InputGroup'
 import Form from 'react-bootstrap/Form'
 import * as Icon from 'react-bootstrap-icons'
+import Api from '../Api'
 
 class Attack extends Component {
-    state = { allAttack: [], count: 1, isLoading: false, inSearch: false }
+    state = { allAttack: [], count: 0, isLoading: false, inSearch: false }
     componentDidMount() {
-        axios.get('http://localhost:4000/api/attack/getFirst')
+        let params = {
+            count: this.state.count
+        }
+        Api.post('api/attack/getNext',params)
             .then((response) => {
                 console.log(response.data.data);
                 this.setState({
-                    allAttack: response.data.data
+                    allAttack: response.data.data,
+                    count: this.state.count + 1
                 })
             });
     }
@@ -27,7 +31,7 @@ class Attack extends Component {
             let params = {
                 search: event.target.value
             }
-            axios.post('http://localhost:4000/api/attack/search',params)
+            Api.post('api/attack/search',params)
                 .then((response) => {
                     this.setState({
                         allAttack: response.data.data
@@ -47,7 +51,7 @@ class Attack extends Component {
         let params = {
             count : this.state.count
         }
-        axios.post('http://localhost:4000/api/attack/getNext',params).then((response) => {
+        Api.post('api/attack/getNext',params).then((response) => {
             if(response.data)
                 this.setState({
                     allAttack: this.state.allAttack.concat(response.data.data),
