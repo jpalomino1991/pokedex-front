@@ -1,12 +1,10 @@
 import React, { Component } from 'react'
+import List from './List'
 
 class Ability extends Component {
-    componentDidMount() {
-
-    }
     render() {
         return (
-            <h1>Ability</h1>
+            <List title="Ability" apiList="api/ability/getNext" apiSearch="api/ability/search"></List>
         )
     }
 }

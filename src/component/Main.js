@@ -11,12 +11,12 @@ export default function Main() {
                 <Card.Header><Icon.ChevronBarContract style={{ margin: '0 20 0 0' }}/>Attack</Card.Header>
             </Card>
           </Link>
-          <Link to="/Ability">
+          <Link to="/ability">
             <Card bg="danger" text="white" style={{ width: '20rem' }}>
                 <Card.Header><Icon.Gem style={{ margin: '0 20 0 0' }}/>Abilities</Card.Header>
             </Card>
           </Link>
-          <Link to="/Pokedex">
+          <Link to="/pokedex">
             <Card bg="dark" text="light" style={{ width: '20rem' }}>
                 <Card.Header><Icon.InboxesFill style={{ margin: '0 20 0 0' }}/>Pokemon</Card.Header>
             </Card>

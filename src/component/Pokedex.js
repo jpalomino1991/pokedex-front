@@ -1,12 +1,10 @@
 import React, { Component } from 'react'
+import List from './List'
 
 class Pokedex extends Component {
-    componentDidMount() {
-
-    }
     render() {
         return (
-            <h1>Pokedex</h1>
+            <List title="Pokemon" apiList="api/pokemon/getNext" apiSearch="api/pokemon/search"></List>
         )
     }
 }
