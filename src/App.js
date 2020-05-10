@@ -6,6 +6,7 @@ import Attack from './component/Attack'
 import Ability from './component/Ability'
 import Pokedex from './component/Pokedex'
 import Main from './component/Main'
+import AttackDetail from './component/AttackDetail'
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Attack path="attack" />
         <Ability path="ability" />
         <Pokedex path="pokedex" />
+        <AttackDetail path="attack/detail"/>
       </Router>
       </header>
     </div>

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import { Link } from '@reach/router'
 import Card from 'react-bootstrap/Card'
+import InputGroup from 'react-bootstrap/InputGroup'
+import Form from 'react-bootstrap/Form'
 import * as Icon from 'react-bootstrap-icons'
 
 class List extends Component {
@@ -9,7 +10,14 @@ class List extends Component {
             <div>
                 <Card bg="info" text="white" style={{ width: '28rem' }}>
                     <Card.Body>
-                        <Card.Title>{this.props.attack.name}</Card.Title>
+                        <Form.Group>
+                            <InputGroup>
+                                <InputGroup.Prepend>
+                                    <InputGroup.Text>Name</InputGroup.Text>
+                                </InputGroup.Prepend>
+                                <h1>Test</h1>
+                            </InputGroup>
+                        </Form.Group>
                     </Card.Body>
                 </Card>
             </div>
