@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Link } from '@reach/router'
+import { Link } from 'react-router-dom'
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 import InputGroup from 'react-bootstrap/InputGroup'
@@ -62,9 +62,6 @@ class List extends Component {
             })
         })
     }
-    getDetail = (item) => {
-        console.log(item)
-    }
     render() {
         return (
             <div>                
@@ -90,9 +87,14 @@ class List extends Component {
                     </Card>
                 {this.state.all.map((item, key) => {
                     return (
-                    <Card bg="primary" key={key} text="white" style={{ width: '28rem' }} onClick={() => this.getDetail(item)}>
-                        <Card.Header>{item.name}</Card.Header>
-                    </Card>
+                        <Link key={key} to={{
+                            pathname: "attack/detail/:id",
+                            id: item._id
+                        }}>
+                            <Card bg="primary" text="white" style={{ width: '28rem' }}>
+                                <Card.Header>{item.name}</Card.Header>
+                            </Card>
+                        </Link>
                     )
                 })}
                 {!this.state.inSearch ? (

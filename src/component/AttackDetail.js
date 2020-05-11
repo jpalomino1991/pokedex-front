@@ -1,23 +1,18 @@
 import React, { Component } from 'react'
 import Card from 'react-bootstrap/Card'
-import InputGroup from 'react-bootstrap/InputGroup'
-import Form from 'react-bootstrap/Form'
+import Bagde from 'react-bootstrap/Badge'
 import * as Icon from 'react-bootstrap-icons'
 
-class List extends Component {
+class AttackDetail extends Component {
+    componentDidMount () {
+        console.log(this.props)
+    }
     render() {
         return (
             <div>
                 <Card bg="info" text="white" style={{ width: '28rem' }}>
                     <Card.Body>
-                        <Form.Group>
-                            <InputGroup>
-                                <InputGroup.Prepend>
-                                    <InputGroup.Text>Name</InputGroup.Text>
-                                </InputGroup.Prepend>
-                                <h1>Test</h1>
-                            </InputGroup>
-                        </Form.Group>
+                        <Bagde variant="primary"><Icon.InfoCircleFill size={16}/> Title</Bagde>{' '}<Bagde variant = "dark">Description</Bagde><br/>
                     </Card.Body>
                 </Card>
             </div>
@@ -25,4 +20,4 @@ class List extends Component {
     }
 }
 
-export default List
+export default AttackDetail
