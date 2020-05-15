@@ -6,6 +6,8 @@ import Ability from './component/Ability'
 import Pokedex from './component/Pokedex'
 import Main from './component/Main'
 import AttackDetail from './component/AttackDetail'
+import AbilityDetail from './component/AbilityDetail'
+import PokedexDetail from './component/PokedexDetail'
 import { BrowserRouter as Router,Switch,Route } from 'react-router-dom'
 
 function App() {
@@ -20,13 +22,15 @@ function App() {
           <Route exact path="/attack">
             <Attack />
           </Route>
-          <Route path="/ability">
+          <Route exact path="/ability">
             <Ability/>
           </Route>
-          <Route path="/pokedex">
+          <Route exact path="/pokedex">
             <Pokedex/>
           </Route>
           <Route path="/attack/detail/:id" component={AttackDetail} />
+          <Route path="/ability/detail/:id" component={AbilityDetail} />
+          <Route path="/pokedex/detail/:id" component={PokedexDetail} />
         </Switch>
       </Router>
       </header>

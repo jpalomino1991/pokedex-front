@@ -4,7 +4,7 @@ import List from './List'
 class Pokedex extends Component {
     render() {
         return (
-            <List title="Pokemon" apiList="api/pokemon/getNext" apiSearch="api/pokemon/search"></List>
+            <List title="Pokemon" apiList="api/pokemon/getNext" apiSearch="api/pokemon/search" linkTo="/pokedex/detail/"></List>
         )
     }
 }

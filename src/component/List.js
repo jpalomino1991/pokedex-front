@@ -88,7 +88,7 @@ class List extends Component {
                 {this.state.all.map((item, key) => {
                     return (
                         <Link key={key} to={{
-                            pathname: "attack/detail/:id",
+                            pathname: this.props.linkTo + item._id,
                             id: item._id
                         }}>
                             <Card bg="primary" text="white" style={{ width: '28rem' }}>
