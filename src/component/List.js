@@ -15,6 +15,7 @@ class List extends Component {
         }
         Api.post(this.props.apiList,params)
             .then((response) => {
+                console.log(response)
                 this.setState({
                     all: response.data.data,
                     count: this.state.count + 1
@@ -92,7 +93,7 @@ class List extends Component {
                             id: item._id
                         }}>
                             <Card bg="primary" text="white" style={{ width: '28rem' }}>
-                                <Card.Header>{item.name}</Card.Header>
+                                {this.props.title === 'Pokemon' ? (<Card.Header>{item.Name}</Card.Header>) : (<Card.Header>{item.name}</Card.Header>)}
                             </Card>
                         </Link>
                     )
