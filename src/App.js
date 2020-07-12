@@ -8,12 +8,13 @@ import Main from './component/Main'
 import AttackDetail from './component/AttackDetail'
 import AbilityDetail from './component/AbilityDetail'
 import PokedexDetail from './component/PokedexDetail'
+import Header from './component/Header'
 import { BrowserRouter as Router,Switch,Route } from 'react-router-dom'
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
+      <Header/>
       <Router>
         <Switch>
           <Route exact path="/">
@@ -33,7 +34,6 @@ function App() {
           <Route path="/pokedex/detail/:id" component={PokedexDetail} />
         </Switch>
       </Router>
-      </header>
     </div>
   );
 }
