@@ -5,35 +5,45 @@ import Attack from './component/Attack'
 import Ability from './component/Ability'
 import Pokedex from './component/Pokedex'
 import Main from './component/Main'
+import Loading from "./component/Loading"
+import Navbar from "./component/Navbar"
 import AttackDetail from './component/AttackDetail'
 import AbilityDetail from './component/AbilityDetail'
 import PokedexDetail from './component/PokedexDetail'
-import Header from './component/Header'
+import PrivateRoute from './component/private-route'
 import { BrowserRouter as Router,Switch,Route } from 'react-router-dom'
+import { useAuth0 } from "@auth0/auth0-react"
+import history from "./utils/history"
 
 function App() {
+  const { isLoading, error } = useAuth0()
+
+  if (error) {
+    return <div>Oops... {error.message}</div>
+  }
+
+  if (isLoading) {
+    return <Loading />
+  }
+
   return (
     <div className="App">
-      <Header/>
-      <Router>
+      <Navbar/>
+      <header className="App-header">
+      <Router history={history}>
         <Switch>
           <Route exact path="/">
             <Main />
           </Route>
-          <Route exact path="/attack">
-            <Attack />
-          </Route>
-          <Route exact path="/ability">
-            <Ability/>
-          </Route>
-          <Route exact path="/pokedex">
-            <Pokedex/>
-          </Route>
-          <Route path="/attack/detail/:id" component={AttackDetail} />
-          <Route path="/ability/detail/:id" component={AbilityDetail} />
-          <Route path="/pokedex/detail/:id" component={PokedexDetail} />
+          <PrivateRoute exact path="/attack" component={Attack} />
+          <PrivateRoute exact path="/ability" component={Ability} />
+          <PrivateRoute exact path="/pokedex" component={Pokedex}/>
+          <PrivateRoute path="/attack/detail/:id" component={AttackDetail} />
+          <PrivateRoute path="/ability/detail/:id" component={AbilityDetail} />
+          <PrivateRoute path="/pokedex/detail/:id" component={PokedexDetail} />
         </Switch>
       </Router>
+      </header>
     </div>
   );
 }

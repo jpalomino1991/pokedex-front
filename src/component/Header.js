@@ -12,9 +12,13 @@ export default function Header() {
     <Navbar bg="dark" variant="dark">
         <Navbar.Brand href="#home">Pokedex</Navbar.Brand>
         <Nav className="mr-auto">
-            <Nav.Link href="#home">Abilities</Nav.Link>
-            <Nav.Link href="#features">Attack</Nav.Link>
-            <Nav.Link href="#pricing">Pokemon</Nav.Link>
+        {!isLoading && user && (
+          <>
+                <Nav.Link href="#home">Abilities</Nav.Link>
+                <Nav.Link href="#features">Attack</Nav.Link>
+                <Nav.Link href="#pricing">Pokemon</Nav.Link>
+          </>
+          )}
         </Nav>
         <Form inline>
         {!isLoading && !user && (
@@ -25,6 +29,10 @@ export default function Header() {
 
         {!isLoading && user && (
         <>
+            
+              <Nav.Link href="#home">Abilities</Nav.Link>
+              <Nav.Link href="#features">Attack</Nav.Link>
+              <Nav.Link href="#pricing">Pokemon</Nav.Link>
             <Form.Control type="text" placeholder={user.name} readOnly />
             <Button onClick={() => logout({ returnTo: window.location.origin })} variant="light">
                 Logout
