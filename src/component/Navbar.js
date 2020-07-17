@@ -1,6 +1,7 @@
 import React from "react"
 import { useAuth0 } from "@auth0/auth0-react"
 import * as Icon from 'react-bootstrap-icons'
+import { NavLink as RouterNavLink } from 'react-router-dom'
 import {
     Button,
     Container,
@@ -31,18 +32,18 @@ const NavBar = () => {
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="mr-auto" defaultActiveKey="#home">
                 <Nav.Item>
-                    <Nav.Link href="/"><Icon.House/>{' '}Home</Nav.Link>
+                    <Nav.Link as={RouterNavLink} to="/"><Icon.House/>{' '}Home</Nav.Link>
                 </Nav.Item>
                 {isAuthenticated && (
                 <>
                 <Nav.Item>
-                    <Nav.Link href="/ability"><Icon.Gem/>{' '}Abilities</Nav.Link>
+                    <Nav.Link as={RouterNavLink} to="/ability"><Icon.Gem/>{' '}Abilities</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                    <Nav.Link href="/attack"><Icon.Lightning/>{' '}Attack</Nav.Link>
+                    <Nav.Link as={RouterNavLink} to="/attack"><Icon.Lightning/>{' '}Attack</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                    <Nav.Link href="/pokedex"><Icon.InboxesFill/>{' '}Pokemon</Nav.Link>
+                    <Nav.Link as={RouterNavLink} to="/pokedex"><Icon.InboxesFill/>{' '}Pokemon</Nav.Link>
                 </Nav.Item>
                 </>)}
             </Nav>

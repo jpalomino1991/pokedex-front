@@ -28,9 +28,9 @@ function App() {
 
   return (
     <div className="App">
-      <Navbar/>
-      <header className="App-header">
       <Router history={history}>
+        <Navbar/>
+        <header className="App-header">
         <Switch>
           <Route exact path="/">
             <Main />
@@ -42,8 +42,8 @@ function App() {
           <PrivateRoute path="/ability/detail/:id" component={AbilityDetail} />
           <PrivateRoute path="/pokedex/detail/:id" component={PokedexDetail} />
         </Switch>
+        </header>
       </Router>
-      </header>
     </div>
   );
 }
