@@ -17,7 +17,7 @@ export default function Main() {
               Welcome to the Pokedex App!
             </Alert>
             <Alert key="dark" variant="dark">
-              This is a simple app created to view basic information of Pokemon ASAP. Please Enjoy!
+              This is a simple app created to view basic information of Pokemon. Please Enjoy!
             </Alert>
           </>
         )}
