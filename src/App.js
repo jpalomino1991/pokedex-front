@@ -7,6 +7,7 @@ import Pokedex from './component/Pokedex'
 import Main from './component/Main'
 import Loading from "./component/Loading"
 import Navbar from "./component/Navbar"
+import Profile from "./component/Profile"
 import AttackDetail from './component/AttackDetail'
 import AbilityDetail from './component/AbilityDetail'
 import PokedexDetail from './component/PokedexDetail'
@@ -35,6 +36,7 @@ function App() {
           <Route exact path="/">
             <Main />
           </Route>
+          <PrivateRoute exact path="/profile" component={Profile} />
           <PrivateRoute exact path="/attack" component={Attack} />
           <PrivateRoute exact path="/ability" component={Ability} />
           <PrivateRoute exact path="/pokedex" component={Pokedex}/>
