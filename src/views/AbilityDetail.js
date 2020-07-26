@@ -7,12 +7,12 @@ import Api from '../Api'
 import { Link } from 'react-router-dom'
 
 class AbilityDetail extends Component {
-    state = { info: {} }
+    state = { info: {}, config: { headers: { Authorization: "Bearer " + localStorage.getItem("token") } } }
     componentDidMount () {
         let params = {
             id: this.props.match.params.id
         }
-        Api.post("api/ability/getbyid",params)
+        Api.post("api/ability/getbyid",params, this.state.config)
             .then((response) => {
                 this.setState({
                     info: response.data.data[0]

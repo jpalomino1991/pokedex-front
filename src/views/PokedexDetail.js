@@ -8,18 +8,18 @@ import Button from 'react-bootstrap/Button'
 import Tabs from 'react-bootstrap/Tabs'
 import Tab from 'react-bootstrap/Tab'
 import Table from 'react-bootstrap/Table'
-import TablePok from './TablePok'
+import TablePok from '../component/TablePok'
 import * as Icon from 'react-bootstrap-icons'
 import Api from '../Api'
 import { Link } from 'react-router-dom'
 
 class PokedexDetail extends Component {
-    state = { generalInfo: {}, attackList: { lv: [], egg: [], tm: [], tr: [] }, imgName: "" }
+    state = { generalInfo: {}, attackList: { lv: [], egg: [], tm: [], tr: [] }, imgName: "",config: { headers: { Authorization: "Bearer " + localStorage.getItem("token") } } }
     componentDidMount () {
         let params = {
             id: this.props.match.params.id
         }
-        Api.post("api/pokemon/getbyid",params)
+        Api.post("api/pokemon/getbyid",params, this.state.config)
             .then((response) => {
                 this.setState({
                     generalInfo: response.data.data[0]
@@ -27,7 +27,7 @@ class PokedexDetail extends Component {
                 params = {
                     search: this.state.generalInfo.Name
                 }
-                Api.post("api/pokemonAttack/search",params)
+                Api.post("api/pokemonAttack/search",params, this.state.config)
                     .then((response) => {
                         this.setState({
                             attackList: response.data.data,

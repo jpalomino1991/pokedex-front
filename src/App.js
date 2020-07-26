@@ -1,16 +1,16 @@
 import React from 'react'
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import Attack from './component/Attack'
-import Ability from './component/Ability'
-import Pokedex from './component/Pokedex'
-import Main from './component/Main'
+import Attack from './views/Attack'
+import Ability from './views/Ability'
+import Pokedex from './views/Pokedex'
+import Main from './views/Main'
 import Loading from "./component/Loading"
 import Navbar from "./component/Navbar"
-import Profile from "./component/Profile"
-import AttackDetail from './component/AttackDetail'
-import AbilityDetail from './component/AbilityDetail'
-import PokedexDetail from './component/PokedexDetail'
+import Profile from "./views/Profile"
+import AttackDetail from './views/AttackDetail'
+import AbilityDetail from './views/AbilityDetail'
+import PokedexDetail from './views/PokedexDetail'
 import PrivateRoute from './component/private-route'
 import { Router,Switch,Route } from 'react-router-dom'
 import { useAuth0 } from "@auth0/auth0-react"

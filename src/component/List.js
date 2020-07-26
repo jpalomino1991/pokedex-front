@@ -8,17 +8,12 @@ import * as Icon from 'react-bootstrap-icons'
 import Api from '../Api'
 
 class List extends Component {
-    state = { all: [], count: 0, isLoading: false, inSearch: false }
+    state = { all: [], count: 0, isLoading: false, inSearch: false, config: { headers: { Authorization: "Bearer " + localStorage.getItem("token") } } }
     componentDidMount() {
         let params = {
             count: this.state.count
         }
-        let config = {
-            headers: {
-                Authorization: 'Bearer ' + localStorage.getItem("token")
-            }
-        }
-        Api.post(this.props.apiList,params,config)
+        Api.post(this.props.apiList,params, this.state.config)
             .then((response) => {
                 console.log(response)
                 this.setState({
@@ -37,7 +32,7 @@ class List extends Component {
             let params = {
                 search: event.target.value
             }
-            Api.post(this.props.apiSearch,params)
+            Api.post(this.props.apiSearch,params,this.state.config)
                 .then((response) => {
                     this.setState({
                         all: response.data.data
@@ -57,7 +52,7 @@ class List extends Component {
         let params = {
             count : this.state.count
         }
-        Api.post(this.props.apiList,params).then((response) => {
+        Api.post(this.props.apiList,params,this.state.config).then((response) => {
             if(response.data)
                 this.setState({
                     all: this.state.all.concat(response.data.data),
