@@ -13,7 +13,12 @@ class List extends Component {
         let params = {
             count: this.state.count
         }
-        Api.post(this.props.apiList,params)
+        let config = {
+            headers: {
+                Authorization: 'Bearer ' + localStorage.getItem("token")
+            }
+        }
+        Api.post(this.props.apiList,params,config)
             .then((response) => {
                 console.log(response)
                 this.setState({

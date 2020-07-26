@@ -19,10 +19,14 @@ class NavBar extends Component {
       logout,
     } = this.props.auth0
     
-    const logoutWithRedirect = () =>
-    logout({
-      returnTo: window.location.origin,
-    })
+    const logoutWithRedirect = () => {
+      localStorage.removeItem("token")
+      localStorage.clear()
+      logout({
+        returnTo: window.location.origin,
+      })
+    }
+      
 
     return (
       <div className="nav-container">
@@ -58,7 +62,7 @@ class NavBar extends Component {
                   {isAuthenticated && (
                   <Nav.Item>
                       <Dropdown>
-                          <Dropdown.Toggle nav caret id="profileDropDown">
+                          <Dropdown.Toggle id="profileDropDown">
                               <img
                                   src={user.picture}
                                   alt="Profile"

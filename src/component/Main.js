@@ -3,12 +3,23 @@ import Alert from 'react-bootstrap/Alert'
 import Card from 'react-bootstrap/Card'
 import { Link } from 'react-router-dom'
 import * as Icon from 'react-bootstrap-icons'
+import Api from '../Api'
 import { useAuth0 } from "@auth0/auth0-react"
 
 export default function Main() {
   const {
-    isAuthenticated
+    isAuthenticated,user
   } = useAuth0()
+  if(isAuthenticated)
+  {
+    let params = {
+      email: user.email
+    }
+    Api.post("api/auth/login",params)
+      .then((response) => {
+        localStorage.setItem("token",response.data.accessToken)
+      })
+  }    
     return (
       <>
         {!isAuthenticated && (

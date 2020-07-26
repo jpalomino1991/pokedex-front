@@ -12,7 +12,7 @@ import AttackDetail from './component/AttackDetail'
 import AbilityDetail from './component/AbilityDetail'
 import PokedexDetail from './component/PokedexDetail'
 import PrivateRoute from './component/private-route'
-import { BrowserRouter as Router,Switch,Route } from 'react-router-dom'
+import { Router,Switch,Route } from 'react-router-dom'
 import { useAuth0 } from "@auth0/auth0-react"
 import history from "./utils/history"
 
